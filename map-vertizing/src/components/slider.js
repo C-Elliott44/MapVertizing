@@ -6,16 +6,19 @@ class DynamicBounds extends React.Component {
     constructor(props) {
       super(props);
       this.state = {
-        min: 0,
-        max: 1000000,
+        min: 1562341880000,
+        max: 1562341920000,
         step: 10,
         value: 1,
       };
     }
+
     onSliderChange = (value) => {
-      console.log(value);
-      this.setState({value});
-    }
+        console.log(value);
+        this.setState({value});
+        this.props.onSliderChange(value);
+      }
+
     onMinChange = (e) => {
       this.setState({
         min: +e.target.value || 0,
@@ -68,7 +71,9 @@ class TheSlider extends Component {
     render() {
       return (
         <div>
-            <DynamicBounds />
+            <DynamicBounds
+                onSliderChange= {this.props.onSliderChange}
+            />
         </div>
       );
     }

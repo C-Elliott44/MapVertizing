@@ -4,21 +4,13 @@ import SimpleMap from './components/map'
 import Slider from './components/slider'
 import DataStore from "./store";
 
-
-function Application() {
-  return (
-    <div className="App">
-      <SimpleMap />
-      <Slider />
-    </div>
-  );
-}
 class App extends React.Component {
 
   constructor(props){
     super(props);
     this.d = new DataStore();
-    this.state = { dataInfo: {}}
+    this.state = { dataInfo: {}, value: 0, neededData:[]};
+    this.onSliderChange = this.onSliderChange.bind(this);
   }
 
   componentDidMount(){
@@ -50,9 +42,26 @@ class App extends React.Component {
   console.log(this.state.dataInfo);
 }
 
+onSliderChange = (value) => {
+  var gotData = this.state.dataInfo.filter(item => item["last visit"]<=value)
+  console.log(gotData);
+  this.setState({neededData: gotData})
+  console.log(value);
+  console.log("hiiii", this.state.neededData);
+}
+
   render() {
-    return <div></div>
-  }
+    return(
+    <div className="App">
+      <SimpleMap 
+        gotData={this.state.neededData}
+      />
+      <Slider 
+        onSliderChange={this.onSliderChange}
+        data={this.state.dataInfo}
+      />
+    </div>
+    )}
 }
 
 

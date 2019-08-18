@@ -19,18 +19,10 @@ class SimpleMap extends Component {
     super(props);
     this.state = {
       center: {
-        lat: 32.715736,
-        lng: -117.161087
+        lat: 32.97821257510396,
+        lng: -117.24843692448304
       },
-      zoom: 13,
-      dataPoints: [
-        {lat: 32.711716, lng: -117.163087},
-        {lat: 32.712726, lng: -117.164087},
-        {lat: 32.713736, lng: -117.165087},
-        {lat: 32.714746, lng: -117.166087},
-        {lat: 32.715756, lng: -117.167087},
-        {lat: 32.716766, lng: -117.168087}
-      ]
+      zoom: 10
     }
   }
  
@@ -45,10 +37,11 @@ class SimpleMap extends Component {
         >
 
           {
-            this.state.dataPoints.map((coordinateItem) => {
+            this.props.gotData.map((coordinateItem) => {
+              console.log(coordinateItem.lat, coordinateItem.long)
               return (<AnyReactComponent
               lat={coordinateItem.lat}
-              lng={coordinateItem.lng}
+              lng={coordinateItem.long}
             />)})}
         </GoogleMapReact>
       </div>
