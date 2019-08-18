@@ -1,11 +1,13 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
+import SimpleMap from './components/map'
+import Slider from './components/slider'
 
 function App() {
   return (
     <div className="App">
-hi
+      <SimpleMap />
+      <Slider />
     </div>
   );
 }

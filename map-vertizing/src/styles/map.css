@@ -1,0 +1,7 @@
+.dataPoint{
+    border-radius: 50%;
+    background-image: radial-gradient(closest-side at 50% 50%, orange -59%,transparent 128%);
+    height: 20px;
+    width: 20px;
+    margin: -20px;
+}
