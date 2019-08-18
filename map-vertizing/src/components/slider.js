@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import Slider, { createSliderWithTooltip } from 'rc-slider';
-
+import '../styles/slider.css'
 
 class DynamicBounds extends React.Component {
     constructor(props) {
